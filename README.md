@@ -61,3 +61,10 @@ Implement accessibility enhancements: keyboard navigation, ARIA roles, and reduc
 Introduce content modularity so new slides or experiences can be added easily without restructuring the main timeline.
 
 Measure and refine scroll behavior on very long pages to avoid browser overscroll bounce, especially on mobile.
+
+Credits
+
+Created by Jean Richardson
+All visuals and animations crafted for this site experience.
+
+Thank you for exploring Venture — a web story built for motion, impact, and exploration.
