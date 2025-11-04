@@ -1,0 +1,1034 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Yellowtail&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Host Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  color: #f4efe7;
+    /* Fixed background image only */
+  background-image: url('./images/mainBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* stays in place */
+}
+
+/* Dark overlay only on background, content unaffected */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.5); /* adjust 0.0 → 1.0 for darkness */
+  pointer-events: none;        /* allow clicks through */
+  z-index: 0;                  /* behind all content */
+}
+
+.capsul {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(50%);
+  transition: 0.3s ease-out;
+}
+
+.capsuleBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 10;
+  opacity: 70%;
+}
+.capsuleLogo {
+  position: relative;
+  width: 42rem;
+  height: 15rem;
+  border-radius: 100px;
+  background: #01290e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.capsuleLogo h1 {
+  position: relative;
+  font-size: 3.8rem;
+  font-weight: 400;
+  color: #01290e;
+  z-index: 1;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #f4f0e7;
+  z-index: 0;
+}
+
+.scroll-mouse {
+  position: fixed;        /* stays on screen */
+  width: 20px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  pointer-events: none;   /* lets clicks pass through */
+  z-index: 9999;          /* above everything */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 4px;
+  transition: transform 0.1s ease-out;
+}
+
+.scroll-mouse .wheel {
+  width: 3px;
+  height: 4px;
+  background: #fff;
+  border-radius: 3px;
+  animation: scrollWheel 1s infinite;
+}
+
+/* animate the wheel inside the mouse */
+@keyframes scrollWheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  50%  { transform: translateY(10px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.page1,
+.page2,
+.page3 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0.5rem;
+}
+
+.page1Part2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  padding: 5rem;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: url("./images/background1.png");
+    background-size: cover;
+    background-position: center; */
+  border-radius: 3.5rem;
+  overflow: hidden;
+}
+
+
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* maintain aspect ratio and cover entire div */
+  z-index: 0; /* behind content */
+  /* High-definition effects */
+  filter: blur(0.2px) brightness(1.1) contrast(1.2) saturate(1.3);
+}
+
+.page1Part2 .background {
+  position: relative;
+  width: 70vw;
+  height: 70vh;
+  margin: 0 auto; /* centers the container */
+  border-radius: 25px;
+  overflow: hidden; /* keeps video inside rounded corners */
+}
+
+.background-video2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  /* Crisp + cinematic quality */
+  filter: contrast(1.08) brightness(1.25) saturate(1.15);
+}
+
+
+
+.background > .top,
+.background > .bottom {
+  position: relative;
+  z-index: 1; /* content stays above video */
+}
+
+.background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background .top,
+.background .bottom {
+  position: absolute;
+  width: calc(100% - 1rem);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.background .top {
+  top: 1.5rem;
+  /* left: 3rem; */
+}
+
+.background .bottom {
+  left: 1rem;
+  bottom: 2rem;
+  align-items: end;
+}
+
+.top h1 {
+  font-size: 12.5rem;
+  font-weight: 500;
+  line-height: 10rem;
+  /* Add drop shadow */
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.menuBtn {
+  position: fixed; /* already fixed */
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #fefafaa2;
+  z-index: 100;           /* button above everything else */
+  background-color: #000;
+  cursor: pointer;
+     /* Inner glow */
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.7);
+   /* Smooth transitions for everything that changes */
+  transition: background-color 0.6s ease-in-out,
+              box-shadow 0.6s ease-in-out,
+              transform 0.3s ease-in-out;
+}
+
+.menuBtn:hover {
+  background-color: #2fe95b; /* button background turns green */
+  transform: scale(1.05);    /* subtle pop */
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 1);
+}
+
+.menuBtn i {
+  color: #2fe95b;
+  font-size: 3rem;
+  transition: color 0.6s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.menuBtn:hover i {
+  color: #ffffff; /* icon turns white */
+}
+
+.bottom h3 {
+  font-size: 2.5rem;
+  width: 20%;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+.bottom h4 {
+  width: 18rem;
+  font-size: 0.9rem;
+}
+
+/* style for page2 */
+.page2 {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  height: 120vh;
+}
+
+.page2 h4 {
+  margin-top: 5.5rem;
+  width: 90%;
+  color: white;
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 6rem;
+}
+
+.page2 .bottom {
+  position: absolute;
+  top: 22%;
+  left: 0;
+  width: 100%;
+  height: 20rem;
+  background: #0d0d0d;
+  /* background: yellow; */
+  opacity: 0.93;
+}
+
+/* page3 */
+.page3 {
+  padding: 3rem;
+  height: 150vh;
+}
+
+.page3 .top,
+.page3 .bottom {
+  width: 100%;
+}
+
+.page3 .top {
+  display: flex;
+  align-items: center;
+}
+
+.page3 .top .left,
+.page3 .top .right {
+  width: 50%;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  gap: 3rem; /* space between images */
+  width: 100%; /* full width of left container */
+  flex-wrap: wrap; /* optional, wrap on smaller screens */
+}
+
+.left .imgBox {
+  width: 32rem;
+  height: 50rem;
+  overflow: hidden;
+  border-radius: 125px;
+}
+
+.imgBox {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem; /* rounded corners, feels organic */
+  box-shadow: 0 10px 25px rgba(208, 215, 208, 0.5),
+    /* deep green shadow */ 0 5px 15px rgba(0, 100, 0, 0.3); /* lighter green highlights */
+  border: 5px solid #155f15; /* dark jungle-green border */
+}
+
+.imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.1); /* slight cinematic feel */
+  transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+  filter: blur(0.2px);
+}
+
+/* Optional hover effect for interactivity */
+.imgBox:hover img {
+  transform: scale(1.05) rotate(0.5deg); /* subtle movement */
+  filter: brightness(1) contrast(1.2);
+}
+
+.page3Part2 {
+  padding: 3rem;
+  height: 150vh;
+}
+
+.page3Part2 .top,
+.page3Part2 .bottom {
+  width: 100%;
+}
+
+.page3Part2 .top {
+  display: flex;
+  align-items: center;
+}
+
+.page3Part2 .top .left,
+.page3Part2 .top .right {
+  width: 50%;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  gap: 3rem; /* space between images */
+  width: 100%; /* full width of left container */
+  flex-wrap: wrap; /* optional, wrap on smaller screens */
+}
+
+.left .imgBox2 {
+  width: 32rem;
+  height: 50rem;
+  overflow: hidden;
+  border-radius: 125px;
+}
+
+.imgBox2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem; /* rounded corners, feels organic */
+  box-shadow: 0 10px 25px rgba(208, 215, 208, 0.5),
+    /* deep green shadow */ 0 5px 15px rgba(0, 100, 0, 0.3); /* lighter green highlights */
+  border: 5px solid #141514; /* dark jungle-green border */
+}
+
+.imgBox2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.1); /* slight cinematic feel */
+  transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+  filter: blur(0.2px);
+  transition: transform 0.8s ease-in-out, filter 0.8s ease-in-out;
+}
+
+/* Optional hover effect for interactivity */
+.imgBox2:hover img {
+  transform: scale(1.05) rotate(0.5deg); /* subtle movement */
+  filter: brightness(1) contrast(1.2);
+}
+
+/* Overlay text */
+.imgBox2 .overlay {
+  position: absolute;
+  top: 10%; /* adjust vertical position */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.5); /* transparent icy effect */
+  color: #fff; /* text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  opacity: 0; /* hidden initially */
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* so hover still affects the image */
+  border: 1px solid #fff;
+  /* Strong black glow */
+  text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000;
+  /* Make space for the line */
+  padding-top: 0.7rem;
+}
+
+/* Horizontal line above overlay */
+.imgBox2 .overlay::before {
+  content: "";
+  position: absolute;
+  top: -8px; /* 3px above overlay */
+  left: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+/* Horizontal line below overlay */
+.imgBox2 .overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* 3px above overlay */
+  right: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+.imgBox2:hover .overlay {
+  opacity: 1; /* show overlay on hover */
+}
+
+.top .right p {
+  font-size: 2.5rem;
+  color: #b1a696;
+  line-height: 2.5rem;
+}
+
+.page3 .bottom {
+  margin-top: 10rem;
+  /* padding-top: 2rem; */
+}
+
+.page3Part2 .bottom {
+  margin-top: 10rem;
+  /* padding-top: 2rem; */
+}
+
+.hideBox {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hideBox h2 {
+  position: relative;
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 12rem;
+}
+
+.hide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+}
+
+.bottom p {
+  margin-top: 4rem;
+  width: 60%;
+  font-size: 1.8rem;
+  color: #d9d1c4;
+  line-height: 2rem;
+}
+
+.video-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60vh;
+  padding: 0 1rem; /* add some horizontal spacing */
+  box-sizing: border-box;
+}
+
+/* style for page4 */
+.page4 {
+  position: relative;
+  height: 130vh;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page4 .slider {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  /* background: yellow; */
+}
+
+.slider .box {
+  position: relative;
+  min-width: calc(50rem * 5);
+  /* maintain the distance between elements */
+  height: 15rem;
+  display: flex;
+}
+
+.slider .box h3 {
+  font-size: 10rem;
+  width: 50rem;
+  position: absolute;
+  left: 100%;
+  animation: animate var(--time) linear infinite;
+  animation-delay: calc(
+    (var(--time) / var(--quantity) * (var(--index) - 1)) - var(--time)
+  );
+}
+
+@keyframes animate {
+  to {
+    left: -50rem;
+  }
+}
+
+.page4 .background {
+  position: absolute;
+  /* width: calc(100vw - 1rem);
+    height: calc(100vh - 0.5rem); */
+  width: 40rem;
+  height: 18rem;
+  border-radius: 90px;
+  /* have to change it during scroll animation */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page4 .background img {
+  transform: scale(1.3);
+}
+
+/* text animation */
+.topText,
+.bottomText {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: yellow; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.bottomText {
+  top: 90%;
+}
+
+h4,
+h3 {
+  position: relative;
+}
+
+.topText h4 {
+  font-size: 5rem;
+  font-weight: 400;
+  color: #f6bfbf;
+  /* Add drop shadow */
+  text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.9);
+}
+.topText h3 {
+  font-size: 3rem;
+}
+
+.bottomText h3 {
+  width: 30%;
+  font-size: 1rem;
+  margin-left: 3rem;
+}
+/* text animation end */
+
+.page4 .background2 {
+  position: absolute;
+  width: calc(100vw - 1rem);
+  height: calc(100vh - 1rem);
+  border-radius: 3.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  overflow: hidden;
+}
+
+.background2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  filter: brightness(70%); /* 100% is normal, <100% darkens */
+}
+
+ /* Overlay text */
+.background2 .overlay {
+  position: absolute;
+  top: 110%; /* adjust vertical position */
+  left: 4%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.5); /* transparent icy effect */
+  color: #fff; /* text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* so hover still affects the image */
+  border: 1px solid #fff;
+  /* Strong black glow */
+  text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000;
+  /* Make space for the line */
+  padding-top: 0.7rem;
+}
+
+/* Horizontal line above overlay */
+.background2 .overlay::before {
+  content: "";
+  position: absolute;
+  top: -8px; /* 3px above overlay */
+  left: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+/* Horizontal line below overlay */
+.background2 .overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* 3px above overlay */
+  right: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+/* =======================
+   TABLET: 1024px
+======================= */
+@media screen and (max-width: 1024px) {
+
+  /* Capsule logo smaller */
+  .capsuleLogo {
+    width: 32rem;
+    height: 12rem;
+  }
+
+  .capsuleLogo h1 {
+    font-size: 2.8rem;
+  }
+
+  .scroll-mouse {
+    display: none; /* hide on tablet */
+  }
+
+  /* Page1 part2 video container */
+  .page1Part2 .background {
+    width: 80vw;
+    height: 60vh;
+  }
+
+
+
+  /* Top heading */
+  .top h1 {
+    font-size: 8rem;
+    line-height: 6.5rem;
+  }
+
+  /* Menu button */
+  .menuBtn {
+    width: 3.5rem;
+    height: 3rem;
+  }
+
+  .menuBtn i {
+    font-size: 2.5rem;
+  }
+
+  /* Page2 */
+  .page2 h4 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  /* Bottom text */
+  .bottom h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .bottom h4 {
+    font-size: 0.8rem;
+    width: 16rem;
+  }
+
+ 
+
+  /* Images */
+  .left .imgBox,
+  .left .imgBox2 {
+   top: -10rem;
+    width: 25rem;
+    height: 15rem;
+  }
+
+  .hideBox h2 {
+    font-size: 6rem;
+    line-height: 7rem;
+  }
+
+  .bottom p {
+    font-size: 1.6rem;
+    width: 70%;
+  }
+
+  /* Page4 text */
+  .topText h4 {
+    font-size: 3.5rem;
+  }
+
+  .topText h3 {
+    font-size: 2rem;
+  }
+
+  .bottomText h3 {
+    font-size: 0.9rem;
+    width: 40%;
+  }
+
+  /* Page4 background container */
+  .page4 .background {
+    width: 30rem;
+    height: 15rem;
+    bottom: 55%;
+  }
+
+  .page4 .background2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 50vh;
+  }
+
+  .background h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .background2 h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .background2 img {
+    transform: scale(1.2);
+  }
+
+  /* Overlay text */
+.background2 .overlay {
+  position: absolute;
+  top: 110%; /* adjust vertical position */
+  left: 15%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.5); /* transparent icy effect */
+  color: #fff; /* text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* so hover still affects the image */
+  border: 1px solid #fff;
+  /* Strong black glow */
+  text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000;
+  /* Make space for the line */
+  padding-top: 0.7rem;
+}
+
+/* Horizontal line above overlay */
+.background2 .overlay::before {
+  content: "";
+  position: absolute;
+  top: -8px; /* 3px above overlay */
+  left: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+/* Horizontal line below overlay */
+.background2 .overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* 3px above overlay */
+  right: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+}
+
+
+/* =======================
+   MOBILE: 768px
+======================= */
+@media screen and (max-width: 768px) {
+
+  /* Capsule logo smaller */
+  .capsuleLogo {
+    width: 25rem;
+    height: 10rem;
+  }
+
+  .capsuleLogo h1 {
+    font-size: 2.2rem;
+  }
+
+  .scroll-mouse {
+    display: none; /* hide on mobile */
+  }
+
+  /* Page1 part2 video container */
+  .page1 .background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 90vh;
+    position: relative;     /* make sure absolute children are positioned correctly */
+    margin: 0 auto;         /* center horizontally */
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .background-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none;       /* remove translate(-50%, -50%) on mobile */
+  }
+
+
+
+  /* Top heading */
+  .top h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  /* Menu button */
+  .menuBtn {
+    width: 3rem;
+    height: 2.5rem;
+  }
+
+  .menuBtn i {
+    font-size: 2rem;
+  }
+
+  /* Page2 */
+  .page2 h4 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  
+
+  /* Bottom text */
+  .bottom h3 {
+    display: none;
+  }
+
+  .bottom h4 {
+    display: none;
+  }
+
+  /* Images */
+  .left .imgBox,
+  .left .imgBox2 {
+    top: 2rem;
+    width: 20rem;
+    height: 10rem;
+  }
+
+  .hideBox h2 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .bottom p {
+    font-size: 1.4rem;
+    width: 90%;
+  }
+
+  /* Page4 text */
+  .topText h4 {
+    font-size: 2.5rem;
+  }
+
+  .topText h3 {
+    font-size: 1.5rem;
+  }
+
+  .bottomText h3 {
+    font-size: 0.8rem;
+    width: 50%;
+  }
+
+  /* Page4 background container */
+  .page4 .background {
+    width: 25rem;
+    height: 12rem;
+  }
+
+  .page4 .background2 {
+    width: 95vw;
+    height: 45vh;
+  }
+
+.video-container {
+    display: flex;
+    align-items: center;        /* vertically center video inside container */
+    justify-content: center;    /* horizontally center video inside container */
+    width: 80%;                 /* container width */
+    max-width: 600px;           /* cap max width */
+    height: 40vh;               /* smaller height for mobile/small screens */
+    margin: 10rem auto 5rem;    /* push container lower: top margin = 10rem, bottom = 2rem */
+    margin-right: 40rem;
+    overflow: hidden;
+    border-radius: 2rem;      /* optional rounded corners */
+    position: relative;         /* ensures positioning if needed */
+}
+
+.background-video2 {
+    width: 100%;                /* fill container width */
+    height: 100%;               /* fill container height */
+    object-fit: cover;          /* cover container without distortion */
+    border-radius: 0.5rem;
+}
+
+
+  .background2 img {
+    transform: scale(1.15);
+  }
+
+
+
+   /* Overlay text */
+.background2 .overlay {
+  position: absolute;
+  top: 110%; /* adjust vertical position */
+  left: 25%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.5); /* transparent icy effect */
+  color: #fff; /* text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* so hover still affects the image */
+  border: 1px solid #fff;
+  /* Strong black glow */
+  text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000;
+  /* Make space for the line */
+  padding-top: 0.7rem;
+}
+
+/* Horizontal line above overlay */
+.background2 .overlay::before {
+  content: "";
+  position: absolute;
+  top: -8px; /* 3px above overlay */
+  left: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+
+/* Horizontal line below overlay */
+.background2 .overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* 3px above overlay */
+  right: 0;
+  width: 20%;
+  height: 1px; /* thin line */
+  background-color: #54de54; /* green line */
+}
+}
+
